@@ -25,7 +25,7 @@
 | **Every-case** | Algorithm always does the same number of basic operations for every instance of size n |
 | **O(f(n))** | Big-O = **upper bound** — g(n) ≤ c·f(n) for all n ≥ N |
 | **Ω(f(n))** | Omega = **lower bound** — g(n) ≥ c·f(n) for all n ≥ N |
-| **Θ(f(n))** | Theta = **tight bound** = O(f(n)) ∩ Ω(f(n)) — c·f(n) ≤ g(n) ≤ d·f(n) |
+| **Θ(f(n))** | Theta = **tight bound** = O(f(n)) ∩ Ω(f(n)) — c₁·f(n) ≤ g(n) ≤ c₂·f(n) |
 
 ### Complexity Order (Best → Worst)
 ```
@@ -343,7 +343,7 @@
 ---
 
 **Q42.** Strassen's algorithm is always more efficient than the standard multiplication algorithm in terms of additions/subtractions. (True/False)  
-- **False ✅** — Only for **large values of n**. Standard uses 4 mult + 0 add/sub vs. Strassen's 7 mult + 18 add/sub for 2×2.
+- **False ✅** — Only for **large values of n**. Standard 2×2 multiplication uses 8 multiplications and 4 additions/subtractions, while Strassen uses 7 multiplications and 18 additions/subtractions. For small matrices Strassen's extra additions make it slower.
 
 ---
 
@@ -521,7 +521,7 @@ B[i][j] = B[i-1][j-1] + B[i-1][j]    if 0 < j < i
 - C) **6 ✅**  
 - D) 3  
 
-> B[4][2] = B[3][1] + B[3][2] = 3 + 3 = 6
+> Pascal's Triangle build-up: B[2][1]=2, B[3][1]=3, B[3][2]=3, so B[4][2] = B[3][1] + B[3][2] = 3 + 3 = **6**
 
 ---
 
