@@ -221,13 +221,13 @@ n!, 2ⁿ, n³, n log n
 
 ---
 
-**Q26.** If T(n) = n for Algorithm 1 (with overhead cost 1000t per step) and T(n) = n² for Algorithm 2 (with overhead t per step), at what input size n does Algorithm 2 become MORE efficient?
+**Q26.** If T(n) = n for Algorithm 1 (with overhead cost 1000t per step) and T(n) = n² for Algorithm 2 (with overhead t per step), at what threshold n does Algorithm **1** (linear) become MORE efficient than Algorithm 2?
 - A) n > 100
 - B) n > 500
 - C) **n > 1000 ✅**
 - D) n > 10,000
 
-> 💡 Algorithm 1 takes n×1000t, Algorithm 2 takes n²×t. Algorithm 2 wins when n²t < 1000nt → n < 1000.
+> 💡 Algorithm 1 takes n×1000t; Algorithm 2 takes n²×t. Algorithm 1 is faster when n×1000t < n²×t → divide both sides by n×t → 1000 < n. So Algorithm 1 wins for **n > 1000**. For n < 1000, the quadratic Algorithm 2 is actually faster due to lower overhead.
 
 ---
 
@@ -991,8 +991,8 @@ The term D(k-1)[i][k] + D(k-1)[k][j] represents:
 **Q121.** Arrange these algorithms from BEST to WORST time complexity:
 Bubble Sort, Merge Sort, Binary Search, Matrix Multiplication (standard)
 - A) Matrix Mult < Binary Search < Merge Sort < Bubble Sort
-- B) **Binary Search < Merge Sort < Bubble Sort ≈ Matrix Mult ✅**
-  *(O(log n) < O(n log n) < O(n²) ≈ O(n³))*
+- B) **Binary Search < Merge Sort < Bubble Sort < Matrix Mult ✅**
+  *(O(log n) < O(n log n) < O(n²) < O(n³))*
 - C) Merge Sort < Bubble Sort < Binary Search < Matrix Mult
 - D) All are the same complexity
 

@@ -181,7 +181,7 @@ mergesort(S, low, high):
 T(n) = 2T(n/2) + n      (divide into 2 halves, merge costs n)
 T(1) = 0
 
-Solving: T(n) = n log₂n
+Solving: T(n) = Θ(n log₂n)  *(Θ notation already abstracts away constant factors — the recurrence T(n) = 2T(n/2) + n always yields Θ(n log n))*
 ```
 
 **Recursion tree visualization:**
@@ -269,7 +269,7 @@ Only **7 multiplications** (p₁–p₇) but **18 additions/subtractions**.
 - Strassen saves 1 multiplication but adds 14 extra additions per level
 - For **small** n: extra additions slow it down
 - For **large** n: the n^2.81 vs n³ difference dominates
-- Crossover point: typically around n = 32–64
+- Crossover point: implementation and hardware-dependent — exact value varies, but Strassen only outperforms standard multiplication for matrices larger than a few dozen rows on most hardware
 
 > ⚠️ **Key exam traps:**
 > - Strassen always more efficient in **multiplications**: TRUE
@@ -463,19 +463,23 @@ If the shortest path from v1 to v5 goes through v3, then the portion from v1 to 
 **Proof by contradiction:** If there were a shorter path from v1 to v3, we could substitute it into the full path and get a shorter v1-to-v5 path, contradicting optimality.
 
 ### Why It FAILS for Longest Paths
-Consider:
+Consider this textbook example with 4 vertices:
 ```
-v1 --1-- v2 --3-- v3
-|                 |
-4                 2
-|                 |
-v4 ------1------- ...
-```
-Longest path from v1 to v4:
-- v1 → v2 → v3 → ... → v4 = say length 7
+Vertices: v1, v2, v3, v4
 
-But the sub-path from v1 to v3 (length 1+3=4) is NOT the longest path from v1 to v3!
-(The longest path v1→v3 might be v1→v4→...→v3 = longer)
+Edges (with weights):
+  v1 → v2 (weight 2)
+  v1 → v3 (weight 1)
+  v2 → v3 (weight 3)    ← longer route v1→v2→v3 = 5
+  v2 → v4 (weight 4)
+  v3 → v2 (weight 8)    ← another route through v3
+  v3 → v4 (weight 2)
+```
+- Longest **simple** path from v1 to v4: [v1, v3, v2, v4] = 1 + 8 + 4 = **13**
+- Sub-path from v1 to v3 on this path: [v1, v3] = **1**
+- BUT the longest path from v1 to v3 is actually [v1, v2, v3] = 2 + 3 = **5**
+
+The optimal path v1→v4 uses a sub-path v1→v3 of length 1, which is **NOT** the longest path from v1 to v3 (which is 5). This violates the Principle of Optimality.
 
 > 💡 **Exam key:** Principle of Optimality applies to **shortest paths** ✅ but NOT **longest paths** ❌.
 
