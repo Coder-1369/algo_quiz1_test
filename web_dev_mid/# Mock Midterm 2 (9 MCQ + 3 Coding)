@@ -1,0 +1,52 @@
+# Mock Midterm 2 (9 MCQ + 3 Coding)
+
+## MCQ
+1) Which is NOT a JS primitive? A)number B)string C)object D)boolean  
+2) `0.1 + 0.2 === 0.3` is: A)true B)false  
+3) Remove last array item: A)push B)pop C)shift D)unshift  
+4) `map()` returns: A)new array same length B)single item C)boolean D)index  
+5) Best to declare constant reference: A)var B)const C)let D)int  
+6) Arrow functions have their own `this`: A)yes B)no  
+7) `document.querySelectorAll("li")` returns: A)single node B)NodeList C)string D)number  
+8) Add event handler: A)addEventListener B)addHandler C)listen D)attach  
+9) Convert object to JSON string: A)JSON.parse B)JSON.stringify C)toJSON() D)Stringify()
+
+## Coding
+1) Write `countVowels(s)`  
+2) Write `isEven(n)`  
+3) DOM: Create new `<li>` with text from input and append to `<ul id="list">`
+
+---
+
+## Answer Key
+1) C  
+2) B  
+3) B  
+4) A  
+5) B  
+6) B  
+7) B  
+8) A  
+9) B
+
+### Coding solutions
+1)
+```js
+function countVowels(s){
+  const m = s.match(/[aeiou]/gi);
+  return m ? m.length : 0;
+}
+```
+2)
+```js
+function isEven(n){ return n % 2 === 0; }
+```
+3)
+```js
+const text = document.getElementById("item").value.trim();
+if (text) {
+  const li = document.createElement("li");
+  li.textContent = text;
+  document.getElementById("list").appendChild(li);
+}
+```
