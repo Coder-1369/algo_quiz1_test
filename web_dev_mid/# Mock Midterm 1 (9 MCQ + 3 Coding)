@@ -1,0 +1,38 @@
+# Mock Midterm 1 (9 MCQ + 3 Coding)
+
+## MCQ (Choose one)
+1) Which is block-scoped? A)var B)let C)both D)none  
+2) `typeof null`? A)"null" B)"object" C)"undefined" D)"number"  
+3) `"5" + 2` output? A)7 B)"7" C)"52" D)error  
+4) Best equality? A)== B)=== C)= D)!=  
+5) `push()` does: A)add end B)remove end C)add start D)copy  
+6) `filter()` returns: A)single value B)new array C)boolean D)string  
+7) Select `.box` first element: A)getElementById B)querySelector(".box") C)querySelectorAll D)getElementsByTagName  
+8) Stop form refresh: A)preventDefault B)stopPropagation C)return true D)clearTimeout  
+9) In `obj.method()`, `this` is: A)global B)obj C)method D)undefined
+
+## Coding (short)
+1) Write `reverseString(s)`  
+2) Write `sumArray(arr)` using `reduce`  
+3) DOM: On button click, change `<p id="msg">` text to "Done"
+
+---
+
+## Answer Key
+MCQ: 1)B 2)B 3)C 4)B 5)A 6)B 7)B 8)A 9)B
+
+### Coding solutions
+1)
+```js
+function reverseString(s){ return s.split("").reverse().join(""); }
+```
+2)
+```js
+function sumArray(arr){ return arr.reduce((a,x)=>a+x,0); }
+```
+3)
+```js
+document.getElementById("btn").addEventListener("click", ()=>{
+  document.getElementById("msg").textContent = "Done";
+});
+```
