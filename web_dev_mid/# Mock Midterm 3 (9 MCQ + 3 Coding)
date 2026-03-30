@@ -1,0 +1,53 @@
+# Mock Midterm 3 (9 MCQ + 3 Coding)
+
+## MCQ
+1) `let` is: A)function scoped B)block scoped C)class scoped D)global only  
+2) `==` vs `===`: A)same B)`===` checks type too C)`==` stricter D)none  
+3) `includes()` returns: A)index B)boolean C)array D)object  
+4) Access property with bracket notation: A)obj.key B)obj["key"] C)obj->key D)obj(key)  
+5) `new` does: A)creates object + binds this B)deletes prototype C)makes arrow D)adds event  
+6) Change element text: A)el.value B)el.textContent C)el.src D)el.href  
+7) Prevent submit reload: A)clearInterval B)preventDefault C)stopTimer D)return true  
+8) `typeof []` is: A)"array" B)"object" C)"list" D)"undefined"  
+9) `typeof undefined` is: A)"null" B)"undefined" C)"object" D)"number"
+
+## Coding
+1) Remove duplicates from array `arr`  
+2) Write `sumArray(arr)` without reduce (loop)  
+3) OOP: Create `Student` class with `constructor(name,id)` and method `info()`
+
+---
+
+## Answer Key
+1) B  
+2) B  
+3) B  
+4) B  
+5) A  
+6) B  
+7) B  
+8) B  
+9) B
+
+### Coding solutions
+1)
+```js
+function unique(arr){
+  return [...new Set(arr)];
+}
+```
+2)
+```js
+function sumArray(arr){
+  let sum = 0;
+  for (const x of arr) sum += x;
+  return sum;
+}
+```
+3)
+```js
+class Student{
+  constructor(name,id){ this.name = name; this.id = id; }
+  info(){ return `${this.name} (${this.id})`; }
+}
+```
