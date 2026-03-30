@@ -1,0 +1,107 @@
+# Short Coding Bank (with solutions)
+
+## A) Core JS (Functions / Arrays / Strings)
+
+### 1) Even/Odd
+**Q:** Write `isEven(n)` returns true if even.  
+**A:**
+```js
+function isEven(n) {
+  return n % 2 === 0;
+}
+```
+
+### 2) Reverse string
+```js
+function reverseString(s) {
+  return s.split("").reverse().join("");
+}
+```
+
+### 3) Count vowels
+```js
+function countVowels(s) {
+  const m = s.match(/[aeiou]/gi);
+  return m ? m.length : 0;
+}
+```
+
+### 4) Sum array
+```js
+function sumArray(arr) {
+  return arr.reduce((sum, x) => sum + x, 0);
+}
+```
+
+### 5) Remove duplicates
+```js
+function unique(arr) {
+  return [...new Set(arr)];
+}
+```
+
+## B) DOM (common slide-style)
+
+### 6) Button changes text
+**HTML**
+```html
+<p id="msg">Hello</p>
+<button id="btn">Change</button>
+```
+**JS**
+```js
+document.getElementById("btn").addEventListener("click", () => {
+  document.getElementById("msg").textContent = "Changed!";
+});
+```
+
+### 7) Add item to list from input
+```js
+document.querySelector("#add").addEventListener("click", () => {
+  const text = document.querySelector("#item").value.trim();
+  if (!text) return;
+
+  const li = document.createElement("li");
+  li.textContent = text;
+  document.querySelector("#list").appendChild(li);
+
+  document.querySelector("#item").value = "";
+});
+```
+
+### 8) Simple form validation (email contains @)
+```js
+document.querySelector("#f").addEventListener("submit", (e) => {
+  const email = document.querySelector("#email").value;
+  if (!email.includes("@")) {
+    e.preventDefault();
+    document.querySelector("#err").textContent = "Invalid email";
+  }
+});
+```
+
+## C) OOP
+
+### 9) Class with method
+```js
+class Student {
+  constructor(name, id) {
+    this.name = name;
+    this.id = id;
+  }
+  info() {
+    return `${this.name} (${this.id})`;
+  }
+}
+```
+
+### 10) Constructor function + prototype method
+```js
+function Rectangle(w, h) {
+  this.w = w;
+  this.h = h;
+}
+Rectangle.prototype.area = function() {
+  return this.w * this.h;
+};
+```
